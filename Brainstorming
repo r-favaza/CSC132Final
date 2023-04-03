@@ -1,2 +1,5 @@
 # Brainstorming ideas
 # 
+
+# Inventory Tracker
+System of tag scanners connected to a pi that keeps track of tags scanned. Tags are attached to the items
