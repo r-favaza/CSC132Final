@@ -1,5 +1,6 @@
 # Brainstorming ideas
+# Turnstile type system for checking into the caf
 # 
 
 # Inventory Tracker
-System of tag scanners connected to a pi that keeps track of tags scanned. Tags are attached to the items
+#System of tag scanners connected to a pi that keeps track of tags scanned. Tags are attached to the items
