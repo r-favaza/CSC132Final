@@ -9,6 +9,8 @@
 ################################################################################
 
 import sys
+
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -57,6 +59,34 @@ class Ui_Dialog(object):
         self.tabWidget_3.setTabPosition(QTabWidget.West)
         self.tab_6 = QWidget()
         self.tab_6.setObjectName(u"tab_6")
+        self.label_3 = QLabel(self.tab_6)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(18, 15, 691, 61))
+        font2 = QFont()
+        font2.setPointSize(20)
+        self.label_3.setFont(font2)
+        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_3.setWordWrap(True)
+        self.label_4 = QLabel(self.tab_6)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(20, 80, 691, 71))
+        font3 = QFont()
+        font3.setPointSize(16)
+        self.label_4.setFont(font3)
+        self.label_4.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_4.setWordWrap(True)
+        self.label_5 = QLabel(self.tab_6)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(20, 140, 691, 51))
+        self.label_5.setFont(font3)
+        self.label_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_5.setWordWrap(True)
+        self.label_6 = QLabel(self.tab_6)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(28, 195, 681, 291))
+        self.label_6.setFont(font3)
+        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_6.setWordWrap(True)
         self.tabWidget_3.addTab(self.tab_6, "")
         self.tab_7 = QWidget()
         self.tab_7.setObjectName(u"tab_7")
@@ -148,6 +178,10 @@ class Ui_Dialog(object):
         self.label.setText(QCoreApplication.translate("Dialog", u"Welcome to the Expo!", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Use the Tabs in the upper right hand corner to explore!", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Home", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Name: Project 1 ", None))
+        self.label_4.setText(QCoreApplication.translate("Dialog", u"Group Members: Member 1, Member 2, Member 3, Member 4", None))
+        self.label_5.setText(QCoreApplication.translate("Dialog", u"Categories: Category 1, Category 2, Category 3", None))
+        self.label_6.setText(QCoreApplication.translate("Dialog", u"Description: Lorem ipsum dolar", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_6), QCoreApplication.translate("Dialog", u"Project 1", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), QCoreApplication.translate("Dialog", u"Project 2", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), QCoreApplication.translate("Dialog", u"Project 3", None))
@@ -168,6 +202,10 @@ class Ui_Dialog(object):
         self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_14), QCoreApplication.translate("Dialog", u"Floor 3", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("Dialog", u"Map", None))
     # retranslateUi
+
+
+
+
 
 
 
