@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'uiPracticeTpMRuu.ui'
+## Form generated from reading UI file 'uiPractice2yYFZFl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -15,9 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QListWidget,
-    QListWidgetItem, QPushButton, QSizePolicy, QTabWidget,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QSizePolicy,
+    QTabWidget, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -45,79 +44,99 @@ class Ui_Dialog(object):
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
-        self.listWidget = QListWidget(self.tab_2)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setGeometry(QRect(0, 0, 256, 571))
-        self.listWidget_2 = QListWidget(self.tab_2)
-        self.listWidget_2.setObjectName(u"listWidget_2")
-        self.listWidget_2.setGeometry(QRect(270, 0, 256, 571))
-        self.listWidget_3 = QListWidget(self.tab_2)
-        self.listWidget_3.setObjectName(u"listWidget_3")
-        self.listWidget_3.setGeometry(QRect(540, 0, 256, 571))
-        self.verticalLayoutWidget = QWidget(self.tab_2)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 251, 571))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_4 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-
-        self.verticalLayout.addWidget(self.pushButton_4)
-
-        self.pushButton_5 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-
-        self.verticalLayout.addWidget(self.pushButton_5)
-
-        self.pushButton_6 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-
-        self.verticalLayout.addWidget(self.pushButton_6)
-
-        self.pushButton_3 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-
-        self.verticalLayout.addWidget(self.pushButton_3)
-
-        self.pushButton_7 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-
-        self.verticalLayout.addWidget(self.pushButton_7)
-
-        self.pushButton_8 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_8.setObjectName(u"pushButton_8")
-
-        self.verticalLayout.addWidget(self.pushButton_8)
-
-        self.pushButton_9 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_9.setObjectName(u"pushButton_9")
-
-        self.verticalLayout.addWidget(self.pushButton_9)
-
-        self.pushButton_10 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_10.setObjectName(u"pushButton_10")
-
-        self.verticalLayout.addWidget(self.pushButton_10)
-
-        self.pushButton_11 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_11.setObjectName(u"pushButton_11")
-
-        self.verticalLayout.addWidget(self.pushButton_11)
-
-        self.pushButton_12 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_12.setObjectName(u"pushButton_12")
-
-        self.verticalLayout.addWidget(self.pushButton_12)
-
+        self.tabWidget_2 = QTabWidget(self.tab_2)
+        self.tabWidget_2.setObjectName(u"tabWidget_2")
+        self.tabWidget_2.setGeometry(QRect(6, 9, 781, 561))
+        self.tabWidget_2.setTabPosition(QTabWidget.North)
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.tabWidget_3 = QTabWidget(self.tab_4)
+        self.tabWidget_3.setObjectName(u"tabWidget_3")
+        self.tabWidget_3.setGeometry(QRect(6, 9, 761, 511))
+        self.tabWidget_3.setTabPosition(QTabWidget.West)
+        self.tab_6 = QWidget()
+        self.tab_6.setObjectName(u"tab_6")
+        self.tabWidget_3.addTab(self.tab_6, "")
+        self.tab_7 = QWidget()
+        self.tab_7.setObjectName(u"tab_7")
+        self.tabWidget_3.addTab(self.tab_7, "")
+        self.tab_8 = QWidget()
+        self.tab_8.setObjectName(u"tab_8")
+        self.tabWidget_3.addTab(self.tab_8, "")
+        self.tabWidget_2.addTab(self.tab_4, "")
+        self.tab_5 = QWidget()
+        self.tab_5.setObjectName(u"tab_5")
+        self.tabWidget_4 = QTabWidget(self.tab_5)
+        self.tabWidget_4.setObjectName(u"tabWidget_4")
+        self.tabWidget_4.setGeometry(QRect(6, 9, 761, 511))
+        self.tabWidget_4.setTabPosition(QTabWidget.West)
+        self.tab_9 = QWidget()
+        self.tab_9.setObjectName(u"tab_9")
+        self.tabWidget_4.addTab(self.tab_9, "")
+        self.tab_10 = QWidget()
+        self.tab_10.setObjectName(u"tab_10")
+        self.tabWidget_4.addTab(self.tab_10, "")
+        self.tab_11 = QWidget()
+        self.tab_11.setObjectName(u"tab_11")
+        self.tabWidget_4.addTab(self.tab_11, "")
+        self.tabWidget_2.addTab(self.tab_5, "")
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QWidget()
         self.tab_3.setObjectName(u"tab_3")
+        self.tabWidget_5 = QTabWidget(self.tab_3)
+        self.tabWidget_5.setObjectName(u"tabWidget_5")
+        self.tabWidget_5.setGeometry(QRect(6, 9, 781, 561))
+        self.tab_12 = QWidget()
+        self.tab_12.setObjectName(u"tab_12")
+        self.tabWidget_6 = QTabWidget(self.tab_12)
+        self.tabWidget_6.setObjectName(u"tabWidget_6")
+        self.tabWidget_6.setGeometry(QRect(6, 9, 761, 511))
+        self.tabWidget_6.setTabPosition(QTabWidget.West)
+        self.tab_15 = QWidget()
+        self.tab_15.setObjectName(u"tab_15")
+        self.tabWidget_6.addTab(self.tab_15, "")
+        self.tab_16 = QWidget()
+        self.tab_16.setObjectName(u"tab_16")
+        self.tabWidget_6.addTab(self.tab_16, "")
+        self.tabWidget_5.addTab(self.tab_12, "")
+        self.tab_13 = QWidget()
+        self.tab_13.setObjectName(u"tab_13")
+        self.tabWidget_7 = QTabWidget(self.tab_13)
+        self.tabWidget_7.setObjectName(u"tabWidget_7")
+        self.tabWidget_7.setGeometry(QRect(6, 9, 761, 511))
+        self.tabWidget_7.setTabPosition(QTabWidget.West)
+        self.tab_17 = QWidget()
+        self.tab_17.setObjectName(u"tab_17")
+        self.tabWidget_7.addTab(self.tab_17, "")
+        self.tab_18 = QWidget()
+        self.tab_18.setObjectName(u"tab_18")
+        self.tabWidget_7.addTab(self.tab_18, "")
+        self.tabWidget_5.addTab(self.tab_13, "")
+        self.tab_14 = QWidget()
+        self.tab_14.setObjectName(u"tab_14")
+        self.tabWidget_8 = QTabWidget(self.tab_14)
+        self.tabWidget_8.setObjectName(u"tabWidget_8")
+        self.tabWidget_8.setGeometry(QRect(6, 9, 761, 511))
+        self.tabWidget_8.setTabPosition(QTabWidget.West)
+        self.tab_19 = QWidget()
+        self.tab_19.setObjectName(u"tab_19")
+        self.tabWidget_8.addTab(self.tab_19, "")
+        self.tab_20 = QWidget()
+        self.tab_20.setObjectName(u"tab_20")
+        self.tabWidget_8.addTab(self.tab_20, "")
+        self.tabWidget_5.addTab(self.tab_14, "")
         self.tabWidget.addTab(self.tab_3, "")
 
         self.retranslateUi(Dialog)
 
         self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_3.setCurrentIndex(0)
+        self.tabWidget_4.setCurrentIndex(0)
+        self.tabWidget_5.setCurrentIndex(0)
+        self.tabWidget_6.setCurrentIndex(0)
+        self.tabWidget_7.setCurrentIndex(0)
+        self.tabWidget_8.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -128,17 +147,24 @@ class Ui_Dialog(object):
         self.label.setText(QCoreApplication.translate("Dialog", u"Welcome to the Expo!", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Use the Tabs in the upper right hand corner to explore!", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Home", None))
-        self.pushButton_4.setText(QCoreApplication.translate("Dialog", u"Project 1", None))
-        self.pushButton_5.setText(QCoreApplication.translate("Dialog", u"Project 2", None))
-        self.pushButton_6.setText(QCoreApplication.translate("Dialog", u"Project 3", None))
-        self.pushButton_3.setText(QCoreApplication.translate("Dialog", u"Project 4", None))
-        self.pushButton_7.setText(QCoreApplication.translate("Dialog", u"Project 5", None))
-        self.pushButton_8.setText(QCoreApplication.translate("Dialog", u"Project 6", None))
-        self.pushButton_9.setText(QCoreApplication.translate("Dialog", u"Project 7", None))
-        self.pushButton_10.setText(QCoreApplication.translate("Dialog", u"Project 8", None))
-        self.pushButton_11.setText(QCoreApplication.translate("Dialog", u"Project 9", None))
-        self.pushButton_12.setText(QCoreApplication.translate("Dialog", u"Project 10", None))
+        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_6), QCoreApplication.translate("Dialog", u"Project 1", None))
+        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_7), QCoreApplication.translate("Dialog", u"Project 2", None))
+        self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_8), QCoreApplication.translate("Dialog", u"Project 3", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), QCoreApplication.translate("Dialog", u"Projects Page 1", None))
+        self.tabWidget_4.setTabText(self.tabWidget_4.indexOf(self.tab_9), QCoreApplication.translate("Dialog", u"Project 4", None))
+        self.tabWidget_4.setTabText(self.tabWidget_4.indexOf(self.tab_10), QCoreApplication.translate("Dialog", u"Project 5", None))
+        self.tabWidget_4.setTabText(self.tabWidget_4.indexOf(self.tab_11), QCoreApplication.translate("Dialog", u"Project 6", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_5), QCoreApplication.translate("Dialog", u"Projects Page 2", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Dialog", u"List", None))
+        self.tabWidget_6.setTabText(self.tabWidget_6.indexOf(self.tab_15), QCoreApplication.translate("Dialog", u"Section 1", None))
+        self.tabWidget_6.setTabText(self.tabWidget_6.indexOf(self.tab_16), QCoreApplication.translate("Dialog", u"Section 2", None))
+        self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_12), QCoreApplication.translate("Dialog", u"Floor 1", None))
+        self.tabWidget_7.setTabText(self.tabWidget_7.indexOf(self.tab_17), QCoreApplication.translate("Dialog", u"Section 1", None))
+        self.tabWidget_7.setTabText(self.tabWidget_7.indexOf(self.tab_18), QCoreApplication.translate("Dialog", u"Section 2", None))
+        self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_13), QCoreApplication.translate("Dialog", u"Floor 2", None))
+        self.tabWidget_8.setTabText(self.tabWidget_8.indexOf(self.tab_19), QCoreApplication.translate("Dialog", u"Section 1", None))
+        self.tabWidget_8.setTabText(self.tabWidget_8.indexOf(self.tab_20), QCoreApplication.translate("Dialog", u"Section 2", None))
+        self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_14), QCoreApplication.translate("Dialog", u"Floor 3", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("Dialog", u"Map", None))
     # retranslateUi
 
