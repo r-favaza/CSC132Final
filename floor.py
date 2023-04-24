@@ -5,7 +5,7 @@
 #   Sections can represent floors, rooms, etc.
 #########################################################################
 
-import Project
+from project import Project
 
 class Section:
 

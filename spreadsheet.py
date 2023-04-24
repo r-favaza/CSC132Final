@@ -5,7 +5,7 @@ ws = wb.active
 
 loaded_projects = []
 
-class Project:
+class ProjectInfo:
 
     def __init__(self, name:str, desc:str, members:str) -> None:
         self.name = name
@@ -22,8 +22,11 @@ print(ws['A1'].value)
 # row 1 will be our header/labels, everything following should be projects
 
 for row in ws.iter_rows(2):
-    newProject = Project(row[0].value, row[1].value, row[2].value)
+    newProject = ProjectInfo(row[0].value, row[1].value, row[2].value)
     loaded_projects.append(newProject)
 
 for project in loaded_projects:
     print(project)
+
+def returnProjects():
+    return loaded_projects

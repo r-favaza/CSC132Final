@@ -5,7 +5,7 @@
 #   Also contains the section the project belongs to, if any
 #########################################################################
 
-import Section
+from floor import Section
 
 class Project:
 
