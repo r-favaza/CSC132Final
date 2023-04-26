@@ -18,7 +18,7 @@ class SharedManager:
 
     def onProjectSelected(self, index):
         self.activeProject = self.projects[index]
-        print(self.projects[index], self.activeProject)
+        print(self.projects[index], self.activeProject, self.activeProject.floor)
 
 projectInfo = spreadsheet.returnProjects()
 projects = []
@@ -27,6 +27,7 @@ manager = SharedManager(projects)
 
 for proj in projectInfo:
     newProj = project.Project(proj.name, proj.members, proj.desc, "Default")
+    newProj.floor = proj.floor
     projects.append(newProj)
 
 print(projects)
