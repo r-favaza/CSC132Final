@@ -24,11 +24,13 @@ from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QSizePolicy,
 from project import Project
 
 class Ui_Dialog(object):
-    def setupUi(self, Dialog):
+    def setupUi(self, Dialog, manager):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
 
         self.projectWidgets = []
+
+        self.manager = manager
 
         Dialog.resize(800, 600)
         self.listTabWidget = QTabWidget(Dialog)
@@ -65,6 +67,9 @@ class Ui_Dialog(object):
         self.projInfoWidget.setObjectName(u"projInfoWidget")
         self.projInfoWidget.setGeometry(QRect(6, 9, 761, 511))
         self.projInfoWidget.setTabPosition(QTabWidget.West)
+
+        self.projInfoWidget.tabBarClicked.connect(self.projectSelected)
+
         '''self.projInfoTab = QWidget()
         self.projInfoTab.setObjectName(u"projInfoTab")
         self.nameLabel = QLabel(self.projInfoTab)
@@ -162,6 +167,10 @@ class Ui_Dialog(object):
         QMetaObject.connectSlotsByName(Dialog)
     # setupUi
 
+    def projectSelected(self, index):
+        print("SELECTED", index)
+        self.manager.onProjectSelected(index)
+
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Welcome to the Expo!", None))
@@ -191,25 +200,19 @@ class Ui_Dialog(object):
 app = QApplication(sys.argv)
 d = QDialog()
 ui = Ui_Dialog()
-ui.setupUi(d)
+#ui.setupUi(d)
 
 def makeProjectWidget(project:Project, widget:QWidget):
     ui.projInfoWidget.addTab(widget, "")
     ui.projInfoWidget.setTabText(ui.projInfoWidget.indexOf(widget), QCoreApplication.translate("Dialog", f"Project {ui.projInfoWidget.indexOf(widget)}", None))
-
-def projectSelected(widget, e):
-    print("SELECTED")
-    widget.manager.onProjectSelected(widget.project)
 
 def makeProjectInfoTab(project:Project, manager):
     projInfoTab = QWidget()
 
     projInfoTab.project = project
     projInfoTab.manager = manager
-    
-    projInfoTab.mouseReleaseEvent = projectSelected
 
-    print(projInfoTab.project, projInfoTab.manager, projInfoTab.mouseReleaseEvent)
+    print(projInfoTab.project, projInfoTab.manager, projInfoTab.mousePressEvent)
 
     projInfoTab.setObjectName(u"projInfoTab")
     nameLabel = QLabel(projInfoTab)
@@ -250,6 +253,8 @@ def makeProjectInfoTab(project:Project, manager):
 
 def generateFromProjects(projects:list[Project], manager):
     
+    ui.setupUi(d, manager)
+
     for project in projects:
         widget = makeProjectInfoTab(project, manager)
         makeProjectWidget(project, widget)

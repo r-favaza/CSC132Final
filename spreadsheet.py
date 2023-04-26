@@ -7,13 +7,14 @@ loaded_projects = []
 
 class ProjectInfo:
 
-    def __init__(self, name:str, desc:str, members:str) -> None:
+    def __init__(self, name:str, desc:str, members:str, floor:int) -> None:
         self.name = name
         self.desc = desc
         self.members = members
+        self.floor = floor
 
     def __str__(self) -> str:
-        return f"(Project) {self.name}: {self.desc} [{self.members}]"
+        return f"(Project) {self.name}: {self.desc} [{self.members}] ({self.floor})"
 
 print(ws['A1'].value)
 
@@ -22,7 +23,7 @@ print(ws['A1'].value)
 # row 1 will be our header/labels, everything following should be projects
 
 for row in ws.iter_rows(2):
-    newProject = ProjectInfo(row[0].value, row[1].value, row[2].value)
+    newProject = ProjectInfo(row[0].value, row[1].value, row[2].value, row[3].value)
     loaded_projects.append(newProject)
 
 for project in loaded_projects:

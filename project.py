@@ -13,9 +13,13 @@ class Project:
         self.desc = desc
         self.categories = categories
         self.section = None
+        self.floor = 0
 
     def setSection(self, section:'Section'):
         self.section = section
+
+    def setFloor(self, floor:int):
+        self.floor = floor
 
 #########################################################################
 #   Section class
