@@ -5,8 +5,6 @@
 #   Also contains the section the project belongs to, if any
 #########################################################################
 
-from floor import Section
-
 class Project:
 
     def __init__(self, name:str, members:str, desc:str, categories:str) -> None:
@@ -16,5 +14,23 @@ class Project:
         self.categories = categories
         self.section = None
 
-    def setSection(self, section:Section):
+    def setSection(self, section:'Section'):
         self.section = section
+
+#########################################################################
+#   Section class
+#   Section represents a section of the expo
+#   Contains a list of projects that belong to that section
+#   Sections can represent floors, rooms, etc.
+#########################################################################
+
+class Section:
+
+    # Init section with a name that represents the section
+    def __init__(self, name:str) -> None:
+        self.name = name
+        self.projects = []
+
+    def addProject(self, index:int, project:Project):
+        self.projects[index] = project
+        project.setSection(self)

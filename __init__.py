@@ -1,11 +1,36 @@
-import floor
+#import floor
 import project
+from project import Project
 import spreadsheet
-import lights
+#import lights
 
-<<<<<<< HEAD
-=======
-projects = spreadsheet.returnProjects()
+########
+    # Shared manager
+    # Contains shared variables and functions for the program
+########
+
+class SharedManager:
+
+    def __init__(self) -> None:
+        self.floor = 1
+        self.activeProject : Project = None
+
+    def onProjectSelected(self, project:Project):
+        self.activeProject = project
+        print(project, self.activeProject)
+
+manager = SharedManager()
+
+projectInfo = spreadsheet.returnProjects()
+projects = []
+
+for proj in projectInfo:
+    newProj = project.Project(proj.name, proj.members, proj.desc, "Default")
+    projects.append(newProj)
 
 print(projects)
->>>>>>> 0d568ce7e2d3f8c8860a19bfe839ee5dd5d69212
+
+import gui
+
+gui.generateFromProjects(projects, manager)
+gui.startUI()
