@@ -160,6 +160,10 @@ class Ui_Dialog(object):
 
 
         QMetaObject.connectSlotsByName(Dialog)
+
+        self.floorOpen = False
+        self.floorNum = None
+        self.roomNum = None
     # setupUi
 
     def retranslateUi(self, Dialog):
