@@ -181,7 +181,36 @@ class Ui_Dialog(object):
         self.listTabWidget.setTabText(self.listTabWidget.indexOf(self.tab_3), QCoreApplication.translate("Dialog", u"Map", None))
     # retranslateUi
 
+    def update(self):
+        
+        self.mainTabOpen = self.tabWidget.currentIndex()
+        if self.mainTabOpen == 2:
+            self.floorOpen = True
+        
+        self.floorSelected = self.tabWidget_5.currentIndex()
+        self.floorOneRoom = self.tabWidget_6.currentIndex()
+        self.floorTwoRoom = self.tabWidget_7.currentIndex()
+        self.floorThreeRoom = self.tabWidget_8.currentIndex()
+        if (self.floorSelected == 0):
+            self.floorNum = 1
+            if (self.floorOneRoom == 0):
+                self.roomNum = 1
+            elif (self.floorOneRoom == 1):
+                self.roomNum = 2
+        elif (self.floorSelected == 1):
+            self.floorNum = 2
+            if (self.floorTwoRoom == 0):
+                self.roomNum = 1
+            elif (self.floorTwoRoom == 1):
+                self.roomNum = 2
+        elif (self.floorSelected == 2):
+            self.floorNum = 3
+            if (self.floorThreeRoom == 0):
+                self.roomNum = 1
+            elif (self.floorThreeRoom == 1):
+                self.roomNum = 2
 
+        print(f"Floor? = {self.floorOpen}\tFloorNum = {self.floorNum}\tRoom = {self.roomNum}")
 
 
 
