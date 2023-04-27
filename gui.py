@@ -10,6 +10,7 @@
 
 import sys
 
+import os
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
@@ -153,6 +154,43 @@ class Ui_Dialog(object):
         self.tabWidget_5.addTab(self.tab_14, "")
         self.listTabWidget.addTab(self.tab_3, "")
 
+        self.label_7 = QLabel(self.tab_15)
+        self.f1s1Blank = QPixmap(os.path.join(os.path.dirname(__file__), "f1s1Blank.png"))
+        self.label_7.setPixmap(self.f1s1Blank)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(10, 10, 721, 491))
+
+        self.label_8 = QLabel(self.tab_16)
+        self.f1s2Blank = QPixmap(os.path.join(os.path.dirname(__file__), "f1s2Blank.png"))
+        self.label_8.setPixmap(self.f1s2Blank)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(10, 10, 711, 491))
+
+        self.label_9 = QLabel(self.tab_17)
+        self.f2s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f2s1.png"))
+        self.label_9.setPixmap(self.f2s1)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(10, 10, 711, 481))
+
+        self.label_10 = QLabel(self.tab_18)
+        self.f2s2 = QPixmap(os.path.join(os.path.dirname(__file__), "f2s2.png"))
+        self.label_10.setPixmap(self.f2s2)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(10, 10, 711, 481))
+
+        self.label_11 = QLabel(self.tab_19)
+        self.f3s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f3s1.png"))
+        self.label_11.setPixmap(self.f3s1)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(10, 10, 711, 481))
+
+        self.label_12 = QLabel(self.tab_20)
+        self.f3s2 = QPixmap(os.path.join(os.path.dirname(__file__), "f3s2.png"))
+        self.label_12.setPixmap(self.f3s2)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setGeometry(QRect(10, 10, 711, 481))
+
+
         self.retranslateUi(Dialog)
 
         self.listTabWidget.setCurrentIndex(0)
@@ -192,6 +230,13 @@ class Ui_Dialog(object):
         self.tabWidget_8.setTabText(self.tabWidget_8.indexOf(self.tab_20), QCoreApplication.translate("Dialog", u"Section 2", None))
         self.tabWidget_5.setTabText(self.tabWidget_5.indexOf(self.tab_14), QCoreApplication.translate("Dialog", u"Floor 3", None))
         self.listTabWidget.setTabText(self.listTabWidget.indexOf(self.tab_3), QCoreApplication.translate("Dialog", u"Map", None))
+
+        self.label_7.setText("")
+        self.label_8.setText("")
+        self.label_9.setText("")
+        self.label_10.setText("")
+        self.label_11.setText("")
+        self.label_12.setText("")
     # retranslateUi
 
     def update(self):
