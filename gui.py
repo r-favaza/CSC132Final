@@ -216,7 +216,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Welcome to the Expo!", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"Use the Tabs in the upper right hand corner to explore!", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"Use the Tabs in the upper left hand corner to explore!", None))
         self.listTabWidget.setTabText(self.listTabWidget.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Home", None))
         self.projPageWidget.setTabText(self.projPageWidget.indexOf(self.tab_4), QCoreApplication.translate("Dialog", u"Projects Page", None))
         self.listTabWidget.setTabText(self.listTabWidget.indexOf(self.tab_2), QCoreApplication.translate("Dialog", u"List", None))
