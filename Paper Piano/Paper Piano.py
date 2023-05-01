@@ -17,7 +17,7 @@ MIXER_BUFF = 1024
 # the note generator class
 class Note(pygame.mixer.Sound):
     # note that volume ranges from 0.0 to 1.0
-    def __init__(self, frequency, volume):
+    def __init__(self, frequency, volume, type):
         self.frequency = frequency
         # initialize the note using an array of sample
         pygame.mixer.Sound.__init__(self, buffer=self.build_samples())
