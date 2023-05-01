@@ -14,8 +14,13 @@ MIXER_SIZE = -16
 MIXER_CHANS = 1
 MIXER_BUFF = 1024
 
+def lerp(a, b, t):
+    """Linear interpolation between a and b by fraction t"""
+    return (1 - t) * a + t * b
+
 # the note generator class
 class Note(pygame.mixer.Sound):
+
     # note that volume ranges from 0.0 to 1.0
     def __init__(self, frequency, volume, type):
         self.frequency = frequency
@@ -23,8 +28,36 @@ class Note(pygame.mixer.Sound):
         pygame.mixer.Sound.__init__(self, buffer=self.build_samples())
         self.set_volume(volume)
 
+    def squareWave(self, period, amplitude, samples):
+        for t in range(period):
+            if (t < period / 2):
+                samples[t] = amplitude
+            else:
+                samples[t] = -amplitude
+
+    def triangleWave(self, period, amplitude, samples):
+        for t in range(period):
+            if (t < period / 4):
+                samples[t] = amplitude * lerp(0, 1, t / (period / 4))
+            elif (t < period / 2):
+                samples[t] = amplitude * lerp(1, -1, (t - period / 4) / (period / 2))
+            elif (t < 3*period / 4):
+                samples[t] = amplitude *lerp(-1, 0, (t - period / 2) / (3*period / 4))
+
+    def sawtoothWave(self, period, amplitude, samples):
+        for t in range(period):
+            if (t < period / 2):
+                samples[t] = amplitude * lerp(0, 1, t / (period / 2))
+            else:
+                samples[t] = amplitude * lerp(-1, 0, (t - period / 2) / (period))
+
+    def sinWave(self, period, amplitude, samples):
+        pass
+
     # builds an array of samples for the current note
-    def build_samples(self):
+    def build_samples(self, type):
+        waveTypes = {"square":self.squareWave, "triangle":self.triangleWave, "sawtooth":self.sawtoothWave, "sin":self.sinWave}
+
         # calculate the period and amplitude of the note's wave
         period = int(round(MIXER_FREQ / self.frequency))
         amplitude = 2 ** (abs(MIXER_SIZE) - 1) - 1
@@ -32,11 +65,13 @@ class Note(pygame.mixer.Sound):
         samples = array("h", [0] * period)
 
         # generate the note's samples
-        for t in range(period):
+        '''for t in range(period):
             if (t < period / 2):
                 samples[t] = amplitude
             else:
-                samples[t] = -amplitude
+                samples[t] = -amplitude'''
+        
+        waveTypes[type](period, amplitude, samples)
         
         vis = WaveformVis()
         vis.visSamples(samples, waveform_name)
