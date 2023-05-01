@@ -3,7 +3,7 @@
 # Date: 4-24-2023
 # Description: Paper piano (v3).
 ############################################
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from math import pi, sin
 from time import sleep, time
 import pygame
@@ -135,6 +135,7 @@ GPIO.setmode(GPIO.BCM)
 # setup the pins and frequencies for the notes (C, E, G, B)
 keys = [20, 16, 12, 26]
 freqs = [261.6, 329.6, 392.0, 493.9]
+waves = ["square", "triangle", "sawtooth", "sin"]
 notes = []
 
 # setup the button pins
@@ -164,7 +165,7 @@ song = []
 print("Welcome to Paper Piano!")
 print("Press Ctrl+C to exit...")
 
-validTypes = ["square", "triangle", "sawtooth", "sin"]
+'''validTypes = ["square", "triangle", "sawtooth", "sin"]
 
 waveType = None
 
@@ -178,7 +179,11 @@ while waveType == None:
 
 # create the actual notes
 for n in range(len(freqs)):
-    notes.append (Note(freqs[n], 1, waveType)) # change your note type here
+    notes.append (Note(freqs[n], 1, waveType))''' # change your note type here
+
+# create the actual notes with different wave forms
+for n in range(len(freqs)):
+    notes.append(Note(261.6, 1, waves[n])) # change your note type here
 
 # detect when Ctrl+C is pressed so that we can reset the GPIO pins
 try:
