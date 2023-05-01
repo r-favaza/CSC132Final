@@ -3,7 +3,8 @@
 # Date: 4-24-2023
 # Description: Paper piano (v3).
 ############################################
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
+from math import pi, sin
 from time import sleep, time
 import pygame
 from array import array
@@ -14,9 +15,9 @@ MIXER_SIZE = -16
 MIXER_CHANS = 1
 MIXER_BUFF = 1024
 
-def lerp(a, b, t):
-    """Linear interpolation between a and b by fraction t"""
-    return (1 - t) * a + t * b
+def lerp(a:float, b:float, f:float) -> float:
+    """Linear interpolation between a and b by fraction f"""
+    return (1 - f) * a + f * b
 
 # the note generator class
 class Note(pygame.mixer.Sound):
@@ -25,8 +26,9 @@ class Note(pygame.mixer.Sound):
     def __init__(self, frequency, volume, type):
         self.frequency = frequency
         # initialize the note using an array of sample
-        pygame.mixer.Sound.__init__(self, buffer=self.build_samples())
+        pygame.mixer.Sound.__init__(self, buffer=self.build_samples(type))
         self.set_volume(volume)
+        self.type = type
 
     def squareWave(self, period, amplitude, samples):
         for t in range(period):
@@ -37,25 +39,31 @@ class Note(pygame.mixer.Sound):
 
     def triangleWave(self, period, amplitude, samples):
         for t in range(period):
+            # start
             if (t < period / 4):
-                samples[t] = amplitude * lerp(0, 1, t / (period / 4))
-            elif (t < period / 2):
-                samples[t] = amplitude * lerp(1, -1, (t - period / 4) / (period / 2))
+                samples[t] = round(amplitude * lerp(0, 1, t / (period / 4)))
+            # middle section
             elif (t < 3*period / 4):
-                samples[t] = amplitude *lerp(-1, 0, (t - period / 2) / (3*period / 4))
+                samples[t] = round(amplitude * lerp(1, -1, (t - period / 4) / (period / 2)))
+            # end section
+            else:
+                samples[t] = round(amplitude * lerp(-1, 0, (t - 3*period / 4) / (period / 4)))
 
     def sawtoothWave(self, period, amplitude, samples):
         for t in range(period):
             if (t < period / 2):
-                samples[t] = amplitude * lerp(0, 1, t / (period / 2))
+                samples[t] = round(amplitude * lerp(0, 1, t / (period / 2))) # peak
             else:
-                samples[t] = amplitude * lerp(-1, 0, (t - period / 2) / (period))
+                samples[t] = round(amplitude * lerp(-1, 0, (t - period / 2) / (period / 2))) # drop
 
     def sinWave(self, period, amplitude, samples):
-        pass
+        for t in range(period):
+            fraction = t / period
+            samples[t] = round(amplitude * sin(2*pi*fraction)) # sin has a period of 2pi so we multiply by that
 
     # builds an array of samples for the current note
     def build_samples(self, type):
+        # the wave generation functions
         waveTypes = {"square":self.squareWave, "triangle":self.triangleWave, "sawtooth":self.sawtoothWave, "sin":self.sinWave}
 
         # calculate the period and amplitude of the note's wave
@@ -63,18 +71,12 @@ class Note(pygame.mixer.Sound):
         amplitude = 2 ** (abs(MIXER_SIZE) - 1) - 1
         # initialize the note's samples (using an arrot of signed 16-bit "shorts")
         samples = array("h", [0] * period)
-
-        # generate the note's samples
-        '''for t in range(period):
-            if (t < period / 2):
-                samples[t] = amplitude
-            else:
-                samples[t] = -amplitude'''
         
+        # build the note's samples based on the type of wave
         waveTypes[type](period, amplitude, samples)
         
         vis = WaveformVis()
-        vis.visSamples(samples, waveform_name)
+        vis.visSamples(samples, type)
 
         return samples
     
@@ -101,6 +103,7 @@ def wait_for_note_start():
 
 # waits until a note is released
 def wait_for_note_stop(key):
+    pass
     while (GPIO.input(key)):
         sleep(0.1)
 
@@ -123,6 +126,7 @@ def play_song():
 # (16 bits signed), channels (mono), and buffer size (1KB)
 # then, initialize the pygame library
 pygame.mixer.pre_init(MIXER_FREQ, MIXER_SIZE, MIXER_CHANS, MIXER_BUFF)
+pygame.mixer.init()
 pygame.init()
 
 # use the Broadcom pin mode
@@ -152,10 +156,6 @@ GPIO.setup(red, GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
 GPIO.setup(blue, GPIO.OUT)
 
-# create the actual notes
-for n in range(len(freqs)):
-    notes.append (Note(freqs[n], 1))
-
 # begin in a non-recording state and initialize the song
 recording = False
 song = []
@@ -163,6 +163,22 @@ song = []
 # the main part of a program
 print("Welcome to Paper Piano!")
 print("Press Ctrl+C to exit...")
+
+validTypes = ["square", "triangle", "sawtooth", "sin"]
+
+waveType = None
+
+while waveType == None:
+    selection = input("Input what wave type you want (square, triangle, sawtooth, sin):")
+    if selection in validTypes:
+        waveType = selection
+        print(f"You have choosen {selection}")
+    else:
+        print("Invalid selection, the valid types are:", validTypes)
+
+# create the actual notes
+for n in range(len(freqs)):
+    notes.append (Note(freqs[n], 1, waveType)) # change your note type here
 
 # detect when Ctrl+C is pressed so that we can reset the GPIO pins
 try:
