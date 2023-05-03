@@ -16,13 +16,20 @@ def allOff():
     for i in lights:
         GPIO.output(i, False)
 
+def allOn():
+    for i in lights:
+        GPIO.output(i, True)
+
 allOff()
 
 while True:
     userInput = str(input("What lights do you want to turn on? "))
 
-    if userInput == "None":
+    if userInput == "off":
         allOff()
+
+    if userInput == "on":
+        allOn()
 
     if "f1" in userInput:
         GPIO.output(floor1, True)
