@@ -1,4 +1,5 @@
 #import floor
+import html
 import project
 from project import Project
 import spreadsheet
@@ -26,7 +27,7 @@ projects = []
 manager = SharedManager(projects)
 
 for proj in projectInfo:
-    newProj = project.Project(proj.name, proj.members, proj.desc, "Default")
+    newProj = project.Project(html.unescape(proj.name), html.unescape(proj.members), html.unescape(proj.desc), "Default")
     newProj.floor = proj.floor
     projects.append(newProj)
 

@@ -1,6 +1,6 @@
 import openpyxl
 
-wb = openpyxl.load_workbook("projects.xlsx")
+wb = openpyxl.load_workbook("expo_new.xlsx")
 ws = wb.active
 
 loaded_projects = []
