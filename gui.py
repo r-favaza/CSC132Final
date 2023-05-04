@@ -167,7 +167,7 @@ class Ui_Dialog(object):
         self.label_8.setGeometry(QRect(10, 10, 711, 491))
 
         self.label_9 = QLabel(self.tab_17)
-        self.f2s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f2s1.png"))
+        self.f2s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f2s1_alt.png"))
         self.label_9.setPixmap(self.f2s1)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setGeometry(QRect(10, 10, 711, 481))
@@ -179,7 +179,7 @@ class Ui_Dialog(object):
         self.label_10.setGeometry(QRect(10, 10, 711, 481))
 
         self.label_11 = QLabel(self.tab_19)
-        self.f3s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f3s1.png"))
+        self.f3s1 = QPixmap(os.path.join(os.path.dirname(__file__), "f3s1_alt.png"))
         self.label_11.setPixmap(self.f3s1)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setGeometry(QRect(10, 10, 711, 481))
