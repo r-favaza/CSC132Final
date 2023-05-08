@@ -20,8 +20,6 @@ section2 = 22; lights.append(section2)
 for i in lights:
     GPIO.setup(lights, GPIO.OUT)
 
-#GPIO.setup(17, GPIO.OUT) #set LED to pin 17
-
 def allOff():
     for i in lights:
         GPIO.output(lights, False)
